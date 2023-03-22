@@ -9,7 +9,7 @@ public class WindArea : MonoBehaviour {
 
     public void IncrementWindStrength(float seconds)
     {
-        StartCoroutine(startIncrement(seconds, 0, 100));
+        StartCoroutine(startIncrement(seconds, 0, strength));
     }
 
     IEnumerator startIncrement(float duration, float minStrength, float maxStrength)

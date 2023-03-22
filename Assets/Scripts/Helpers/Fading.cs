@@ -5,7 +5,7 @@ namespace Helpers
 	public class Fading : MonoBehaviour {
 
 		public Texture2D fadeOutTexture; // the texture that will overlay the screen. This can be a black image or a loading graphic
-		public static float fadeSpeed = 0.5f;  // the fading speed
+		public static float fadeSpeed = 0.3f;  // the fading speed
 
 		private int drawDepth = -1000;  // the texture's order in the draw hierarchy: a low number means it renders on top
 		private float alpha = 1.0f;   // the texture's alpha value between 0 and 1
@@ -31,11 +31,11 @@ namespace Helpers
 			return (fadeSpeed);
 		}
 
-		// OnLevelWasLoaded is called when a level is loaded. It takes loaded level index (int) as a parameter so you can limit the fade in to certain scenes.
-		void OnLevelWasLoaded()
-		{
-			// alpha = 1;  // use this if the alpha is not set to 1 by default
-			BeginFade(-1);  // call the fade in function
-		}
+		// // OnLevelWasLoaded is called when a level is loaded. It takes loaded level index (int) as a parameter so you can limit the fade in to certain scenes.
+		// void OnLevelWasLoaded()
+		// {
+		// 	// alpha = 1;  // use this if the alpha is not set to 1 by default
+		// 	//BeginFade(-1);  // call the fade in function
+		// }
 	}
 }﻿

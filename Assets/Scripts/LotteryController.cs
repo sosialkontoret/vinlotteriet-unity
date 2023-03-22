@@ -103,7 +103,10 @@ public class LotteryController : MonoBehaviour
 
     public void DetermineIfLotteryIsFInished()
     {
-        if(currentLottery.currentDraw == currentLottery.numberOfDraws)
+        Debug.Log("current draw " + currentLottery.currentDraw);
+        Debug.Log("number of draws left " + currentLottery.numberOfDraws);
+        
+        if(currentLottery.currentDraw >= currentLottery.numberOfDraws )
         {
 
             lotteryFinished.Invoke();

@@ -9,6 +9,7 @@ TagManager:
   - DrawBall
   - NotWindArea
   - LotteryController
+  - Dude
   layers:
   - Default
   - TransparentFX

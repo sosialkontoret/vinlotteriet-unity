@@ -6,6 +6,12 @@ using UnityEngine.Events;
 
 public class GetBallOnTop : MonoBehaviour
 {
+
+    [SerializeField]
+    private float rayLength;
+
+    [SerializeField]
+    private Transform BallPivotPoint;
     public UnityEvent RestartBallFinding;
 
     private GameObject _drawBall;
@@ -28,7 +34,7 @@ public class GetBallOnTop : MonoBehaviour
         Vector3 start = transform.position;
         Quaternion spreadAngle = Quaternion.AngleAxis(angleDir, start);
         Gizmos.color = Color.red;
-        Vector3 direction = spreadAngle * Vector3.up * 1;
+        Vector3 direction = spreadAngle * Vector3.up * rayLength;
         Gizmos.DrawRay(start, direction);
 
     }
@@ -53,7 +59,7 @@ public class GetBallOnTop : MonoBehaviour
         {
             GameObject[] listOfBalls = GameObject.FindGameObjectsWithTag("Ball");
             return listOfBalls[0];
-        }
+        } 
         gameObject = GetObjectFromRaycast(angleDir);
 
         return gameObject;
@@ -64,8 +70,9 @@ public class GetBallOnTop : MonoBehaviour
         {
             _drawBall = GetObjectFromRaycast(0);
         }
+        _drawBall.transform.parent = transform;
         Debug.Log("getballontop");
-        _drawBall.transform.position = new Vector3(transform.position.x, transform.position.y + .5f, transform.position.z);
+        _drawBall.transform.position = BallPivotPoint.transform.position;
         _drawBall.transform.name = "DrawBall";
         _drawBall.transform.tag = "DrawBall";
         _drawBall.transform.Find("Name").gameObject.SetActive(true);

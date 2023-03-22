@@ -6,9 +6,15 @@ using UnityEngine.Events;
 public class TimedEvent : MonoBehaviour
 {
     public float waitSeconds;
+    public bool beginOnStart;
     public UnityEvent onTimerStart;
     public UnityEvent onTimerFinished;
 
+public void Start() {
+    if(beginOnStart) {
+        StartTimer();
+    }
+}
     public void StartTimer()
     {
 
